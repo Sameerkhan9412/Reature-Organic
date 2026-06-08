@@ -18,12 +18,15 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Reature Organic - Premium Ayurvedic & Herbal Wellness Store",
-    template: "%s | Reature Organic",
+    default: "ReaTure - Premium Ayurvedic & Herbal Wellness Store",
+    template: "%s | ReaTure",
   },
   description:
     "Experience premium Ayurvedic medicines, herbal supplements, digestive wellness, skin care, and immunity boosters verified by heritage wisdom and medical science.",
   metadataBase: new URL("http://localhost:3000"),
+  icons: {
+    icon: "/icon.png",
+  },
   alternates: {
     canonical: "/",
   },

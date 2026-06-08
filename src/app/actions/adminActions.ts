@@ -152,6 +152,13 @@ export async function adminDeleteProductAction(productId: string) {
 // -----------------------------------------------------------------------------
 // Category Management CRUD
 // -----------------------------------------------------------------------------
+export async function adminGetCategoriesAction() {
+  await verifyAdmin();
+  await dbConnect();
+  const categories = await Category.find({}).sort({ name: 1 });
+  return JSON.parse(JSON.stringify(categories));
+}
+
 export async function adminCreateCategoryAction(categoryData: {
   name: string;
   description?: string;

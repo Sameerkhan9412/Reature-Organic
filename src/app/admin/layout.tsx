@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUserAction } from "@/app/actions/authActions";
-import { LayoutDashboard, ShoppingCart, BarChart3, Tag, Image as ImageIcon, BookOpen, FileText, CheckSquare, Settings, ArrowLeft } from "lucide-react";
+import { LayoutDashboard, ShoppingCart, BarChart3, Tag, Image as ImageIcon, BookOpen, FileText, CheckSquare, Settings, ArrowLeft, Users, Layers } from "lucide-react";
 
 export default async function AdminLayout({
   children,
@@ -17,12 +17,16 @@ export default async function AdminLayout({
   }
 
   const menuItems = [
-    { label: "Dashboard Metrics", href: "/admin", icon: LayoutDashboard },
-    { label: "Manage Products", href: "/admin/products", icon: ShoppingCart },
-    { label: "Manage Orders", href: "/admin/orders", icon: BarChart3 },
-    { label: "Manage Coupons", href: "/admin/coupons", icon: Tag },
-    { label: "Manage Banners", href: "/admin/banners", icon: ImageIcon },
-    { label: "Manage Resources", href: "/admin/resources", icon: FileText },
+    { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+    { label: "Products", href: "/admin/products", icon: ShoppingCart },
+    { label: "Categories", href: "/admin/categories", icon: Layers },
+    { label: "Orders", href: "/admin/orders", icon: BarChart3 },
+    { label: "Coupons", href: "/admin/coupons", icon: Tag },
+    { label: "Banners", href: "/admin/banners", icon: ImageIcon },
+    { label: "Blogs", href: "/admin/blogs", icon: BookOpen },
+    { label: "Reviews", href: "/admin/reviews", icon: CheckSquare },
+    { label: "Customers", href: "/admin/users", icon: Users },
+    { label: "Resources", href: "/admin/resources", icon: FileText },
   ];
 
   return (
