@@ -5,6 +5,8 @@ import { Coupon } from "./models/Coupon";
 import { Banner } from "./models/Banner";
 import { Blog } from "./models/Blog";
 import { Resource } from "./models/Resource";
+import { User } from "./models/User";
+import bcrypt from "bcryptjs";
 
 const initialCategories = [
   { name: "Ayurvedic Medicines", slug: "ayurvedic-medicines", description: "Traditional formulations for healing", icon: "Activity" },
@@ -226,6 +228,36 @@ const initialCoupons = [
 
 export async function seedDatabase() {
   await dbConnect();
+
+  // Seed Admin User from Environment Variables
+  const adminEmail = process.env.ADMIN_EMAIL;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (adminEmail && adminPassword) {
+    const existingAdmin = await User.findOne({ email: adminEmail.toLowerCase() });
+    if (!existingAdmin) {
+      const salt = await bcrypt.genSalt(10);
+      const passwordHash = await bcrypt.hash(adminPassword, salt);
+      const newAdmin = new User({
+        name: "Super Admin",
+        email: adminEmail.toLowerCase(),
+        phone: "9999999999",
+        passwordHash,
+        role: "admin",
+        isVerified: true,
+      });
+      await newAdmin.save();
+      console.log("Admin account seeded successfully.");
+    } else {
+      // Keep password synced with .env
+      const isMatch = await bcrypt.compare(adminPassword, existingAdmin.passwordHash);
+      if (!isMatch) {
+        const salt = await bcrypt.genSalt(10);
+        existingAdmin.passwordHash = await bcrypt.hash(adminPassword, salt);
+        await existingAdmin.save();
+        console.log("Admin account password updated from environment variables.");
+      }
+    }
+  }
 
   const productCount = await Product.countDocuments();
   if (productCount > 0) {
