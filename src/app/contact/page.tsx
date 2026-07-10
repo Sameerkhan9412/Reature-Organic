@@ -175,9 +175,7 @@ export default function ContactPage() {
                     Registered Office
                   </p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    108, Sacred Herbs Marg,<br />
-                    DLF Phase 3, Gurugram,<br />
-                    Haryana - 122002, India
+                    Agra- Mathura Bypass Road, <br/> in front of Rehmatpur Garmai, near Kamalpur, <br/>Chauraha, Aligarh, Kamalpur, <br/> Uttar Pradesh 202001
                   </p>
                 </div>
 
@@ -474,7 +472,7 @@ export default function ContactPage() {
                   Find Us On Map
                 </h3>
                 <p className="text-xs text-gray-500 mt-0.5">
-                  108 Sacred Herbs Marg, DLF Phase 3, Gurugram
+                  Agra- Mathura Bypass Road, in front of Rehmatpur Garmai, near Kamalpur, Chauraha, Aligarh, Kamalpur, Uttar Pradesh 202001
                 </p>
               </div>
             </div>

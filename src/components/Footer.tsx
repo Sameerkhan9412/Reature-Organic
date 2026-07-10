@@ -239,7 +239,7 @@ export default function Footer() {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <span className="text-gray-400 leading-relaxed pt-1">
-                  108, Sacred Herbs Marg, DLF Phase 3, Gurugram, Haryana - 122002
+                  Agra- Mathura Bypass Road, in front of Rehmatpur Garmai, near Kamalpur, Chauraha, Aligarh, Kamalpur, Uttar Pradesh 202001
                 </span>
               </li>
               <li>
@@ -310,9 +310,15 @@ export default function Footer() {
 
         {/* Legal Links */}
         <div className="mt-6 pt-6 border-t border-white/5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-gray-500">
-          {["Privacy Policy", "Terms of Service", "Refund Policy", "Shipping Info", "FAQ"].map((link) => (
-            <Link key={link} href="#" className="hover:text-secondary transition-colors">
-              {link}
+          {[
+            { label: "Privacy Policy", href: "/privacy-policy" },
+            { label: "Terms of Service", href: "/terms-of-service" },
+            { label: "Refund Policy", href: "/refund-policy" },
+            { label: "Shipping Info", href: "/shipping-policy" },
+            { label: "FAQ", href: "/faq" }
+          ].map((link) => (
+            <Link key={link.label} href={link.href} className="hover:text-secondary transition-colors">
+              {link.label}
             </Link>
           ))}
         </div>
